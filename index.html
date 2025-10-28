@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Shanur Maurya, portfolio, jigar, full stack dev, personal portfolio lifecodes, portfolio design, portfolio website, personal portfolio" />
+    <meta name="description" content="Welcome to Shanur Portfolio. Full-Stack Web Developer and Android App Developer" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Favicon -->
+    <link id='favicon' rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-png">
+    <title>Portfolio | Shanur Maurya</title>
+ <style>
+section.home {
+  position: relative;
+  overflow: hidden;
+}
+#tsparticles {
+  z-index: 0;
+}
+section.home .content,
+section.home .image {
+  position: relative;
+  z-index: 1;
+}
+
+
+
+        .projects {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+        }
+
+        .heading {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #d30d0d;
+        }
+
+        .heading i {
+            color: #00d4ff;
+            margin-right: 0.5rem;
+        }
+
+        .heading span {
+            color: #00d4ff;
+        }
+.projects-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+    align-items: start;
+}
+
+.project-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 300px; /* fixed uniform height */
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 212, 255, 0.2);
+}
+
+.media-container {
+    height: 180px; /* fits video or image nicely */
+    width: 100%;
+    overflow: hidden;
+    background: #000;
+}
+
+.media-container video,
+.media-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-info {
+    flex: 1;
+    padding: 0.8rem 1rem;
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+.project-info h3 {
+    font-size: 1rem;
+    color: #00d4ff;
+    margin-bottom: 0.3rem;
+}
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
+            border-color: rgba(0, 212, 255, 0.5);
+        }
+
+        .media-container {
+            position: relative;
+            width: 100%;
+           
+            background: #000;
+            overflow: hidden;
+        }
+
+
+        .media-slider {
+            display: flex;
+            height: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .media-item {
+            min-width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pr-btn a{}
+
+        .media-controls {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .media-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .media-dot.active {
+            background: #00d4ff;
+            width: 25px;
+            border-radius: 5px;
+        }
+
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+            z-index: 10;
+        }
+
+        .nav-arrow:hover {
+            background: rgba(0, 212, 255, 0.8);
+        }
+
+        .nav-arrow.prev {
+            left: 10px;
+        }
+
+        .nav-arrow.next {
+            right: 10px;
+        }
+
+        .nav-arrow:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            color: #00d4ff;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .project-description {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: rgba(205, 195, 223, 0.8);
+            flex-grow: 1;
+        }
+
+        .media-type-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 212, 255, 0.9);
+            color: #000;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            z-index: 10;
+        }
+.prbtn {
+    display: inline-block;
+    padding: 0.8rem 1.6rem;
+    background: linear-gradient(90deg, #00d4ff, #0077ff);
+    color: #fff;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+    margin-top: 2rem;
+}
+
+.prbtn:hover {
+    background: linear-gradient(90deg, #0077ff, #00d4ff);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
+}
+
+/* center the button */
+.prbtn-container {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+        @media (max-width: 768px) {
+            .projects {
+                padding: 3rem 1rem;
+            }
+
+            .heading {
+                font-size: 2rem;
+            }
+
+            .projects-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .media-container {
+                height: 220px;
+            }
+
+            .project-title {
+                font-size: 1.2rem;
+            }
+
+            .project-description {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .projects {
+                padding: 2rem 0.8rem;
+            }
+
+            .heading {
+                font-size: 1.7rem;
+            }
+
+            .media-container {
+                height: 200px;
+            }
+        }
+ 
+</style>
+
+</head>
+<body oncontextmenu="return false">
+
+<!-- pre loader -->
+<!-- <div class="loader-container">
+  <img draggable="false" src="./assets/images/preloader.gif" alt="">
+</div> -->
+
+<!-- navbar starts -->
+<header>
+        <div class="logo"></i> Shanur</div>
+
+        <div id="menu" class="fas fa-bars"></div>
+        <nav class="navbar">
+            <ul>
+            <li><a class="active" href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#projects">Work</a></li>
+            <li><a href="#experience">Experience</a></li>
+           
+            </ul>
+        </nav>
+</header>
+<!-- navbar ends -->
+
+
+<!-- hero section starts -->
+<section class="home" id="home">
+    <div id="particles-js"></div>
+
+    <div class="content">
+    <h2>Hi There,<br/> I'm Shanur <span>Maurya</span></h2>
+    <p>i am into <span class="typing-text"></span></p>
+    <a href="#about" class="btn"><span>About Me</span>
+      <i class="fas fa-arrow-circle-down"></i>
+    </a>
+    <div class="socials">
+        <ul class="social-icons">
+          <li><a class="linkedin" aria-label="LinkedIn" href="https://www.linkedin.com/in/shanur-maurya-27ba79268 " target="_blank"><i class="fab fa-linkedin"></i></a></li> 
+          <li><a class="github" aria-label="GitHub" href="https://github.com/Shanur-Maurya" target="_blank"><i class="fab fa-github"></i></a></li>
+         
+        </ul>
+      </div>
+    </div>
+<div class="image" >
+    <img draggable="false" class="tilt" src="./assets/images/Shanurim.jpg" alt="">
+</div>
+
+</section>
+<!-- hero section ends -->
+
+
+<!-- about section starts -->
+<section class="about" id="about">
+    <h2 class="heading"><i class="fas fa-user-alt"></i> About <span>Me</span></h2>
+    
+    <div class="row">
+
+    <div class="image">
+        <img draggable="false" class="tilt" src="./assets/images/Shan.jpg" alt="">
+    </div>
+    <div class="content">
+        <h3>I'm Shanur</h3>
+        <span class="tag">UI/UX Designer | Frontend Developer | Grahpic Desinger</span>
+        
+        <p>Computer Engineering student specializing in UI/UX design and frontend development. Skilled in Figma, Canva, HTML5, CSS3,
+
+and JavaScript, with experience in building responsive web interfaces, ensuring cross-browser compatibility, and optimizing front-
+end performance. Passionate about designing intuitive, user-friendly digital experiences, with strong problem-solving and
+
+collaboration skills. </p>
+        
+        <div class="box-container">
+            <!-- <div class="box">
+              <p><span> age: </span> 20</p>
+              <p><span> phone : </span> +91 XXX-XXX-XXXX</p>
+            </div> -->
+            <div class="box">
+              <p><span> email : </span> mauryashanur@gmail.com</p>
+              <p><span> place : </span> Margao-Goa, India - 403708</p>
+            </div>
+        </div>
+        
+        <div class="resumebtn">
+            <a href="https://drive.google.com/file/d/1rm43wFBO-kStDXJZvSbRFliCbgBIKyVo/view" target="_blank" class="btn"><span>Resume</span>
+                <i class="fas fa-chevron-right"></i>
+            </a>
+        </div>
+
+    </div>
+    </div>
+</section>
+<!-- about section ends -->
+
+<!-- skills section starts -->
+<section class="skills" id="skills">
+
+    <h2 class="heading"><i class="fas fa-laptop-code"></i> Skills & <span>Abilities</span></h2>
+
+    <div class="container">
+          <div class="row" id="skillsContainer">
+
+            <!-- <div class="bar">
+              <div class="info">
+                <img src="https://img.icons8.com/color/48/000000/adobe-xd.png"/>
+                <span>AdobeXD</span>
+              </div>
+            </div> -->
+
+      </div>
+</div>
+</section>
+<!-- skills section ends -->
+
+
+<!-- education section starts -->
+<section class="education" id="education">
+
+  <h1 class="heading"><i class="fas fa-graduation-cap"></i> My <span>Education</span></h1>
+
+    <p class="qoute">An investment in knowledge pays the best interest.</p>
+
+    <div class="box-container">
+      <div class="box">
+        <div class="image">
+        <img draggable="false" src="./assets/images/educat/tata.jpeg" alt="">
+        </div>
+        <div class="content">
+        <h3>UI/UX Course</h3>
+        <p>Tata Strive Ponda</p>
+        <h4>2025 | Completed</h4>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="image">
+        <img draggable="false" src="./assets/images/educat/rit.jpg" alt="">
+        </div>
+        <div class="content">
+        <h3>Bachelor of Engineering in Computer Engineering</h3>
+        <p>Shree Rayeshwar Insititute of Engineering and Information Technology</p>
+        <h4>2021-2025 | Completed</h4>
+        </div>
+    </div>
+
+    <div class="box">
+      <div class="image">
+      <img draggable="false" src="./assets/images/educat/govt.jpeg" alt="">
+      </div>
+      <div class="content">
+      <h3>HSC Science </h3>
+      <p>Govt Multipurpose Higher Secondary School, Borda-Goa</p>
+      <h4>2018-2020 | Completed</h4>
+      </div>
+    </div>
+
+</div>
+</section>
+<!-- education section ends -->
+
+
+ <section class="projects" id="projects">
+        <h2 class="heading"><i class="fas fa-laptop-code"></i> Projects <span>Made</span></h2>
+        
+        <div class="projects-container" id="projectsContainer"></div>
+<div class="prbtn-container">
+  <a href="https://drive.google.com/drive/folders/1rZC4HiI-lm7ipSXjkyE1A9UXt7Wu6jdx?usp=sharing" target="_blank" class="prbtn">
+    Click to view more projects
+  </a>
+</div>
+
+</section>
+<!-- experience section starts -->
+<section class="experience" id="experience">
+
+  <h2 class="heading"><i class="fas fa-briefcase"></i> Experience </h2>
+
+  <div class="timeline">
+
+      <div class="container right">
+      <div class="content">
+        <div class="tag">
+          <h2>Spintly India Pvt Ltd.</h2>
+        </div>
+        <div class="desc">
+            <h3>Machine learning intern</h3>
+            <p>Jul 2024- Aug 2024</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container left">
+      <div class="content">
+        <div class="tag">
+          <h2>Psyliq</h2>
+        </div>
+        <div class="desc">
+            <h3>Database MAnagement intern</h3>
+            <p>Dec 2023</p>
+        </div>
+      </div>
+    </div>
+</div>
+
+</section>
+<!-- experience section ends -->
+
+<!-- contact section starts 
+<section class="contact" id="contact">
+  
+  <h2 class="heading"><i class="fas fa-headset"></i> Get in <span>Touch</span></h2>
+
+  <div class="container">
+    <div class="content">
+      <div class="image-box">
+        <img draggable="false" src="./assets/images/contact1.png" alt="">
+      </div>
+    <form id="contact-form">
+      
+      <div class="form-group">
+        <div class="field">
+          <input type="text" name="name" placeholder="Name" required>
+          <i class='fas fa-user'></i>
+        </div>
+        <div class="field">
+          <input type="text" name="email" placeholder="Email" required>
+          <i class='fas fa-envelope'></i>
+        </div>
+        <div class="field">
+          <input type="text" name="phone" placeholder="Phone">
+          <i class='fas fa-phone-alt'></i>
+        </div>
+        <div class="message">
+        <textarea placeholder="Message" name="message" required></textarea>
+        <i class="fas fa-comment-dots"></i>
+        </div>
+        </div>
+      <div class="button-area">
+        <button type="submit">
+          Submit <i class="fa fa-paper-plane"></i></button>
+      </div>
+    </form>
+  </div>
+  </div>
+</section>
+-->
+
+<!-- contact section ends -->
+
+
+<!-- footer section starts -->
+<section class="footer">
+
+  <div class="box-container">
+
+      <div class="box">
+          <h3>Shanur's Portfolio</h3>
+          <p>Thank you for visiting my personal portfolio website. Connect with me over socials. <br/> </p>
+      </div>
+
+      <div class="box">
+          <h3>quick links</h3>
+          <a href="#home"><i class="fas fa-chevron-circle-right"></i> home</a>
+          <a href="#about"><i class="fas fa-chevron-circle-right"></i> about</a>
+          <a href="#skills"><i class="fas fa-chevron-circle-right"></i> skills</a>
+          <a href="#education"><i class="fas fa-chevron-circle-right"></i> education</a>
+          <a href="#work"><i class="fas fa-chevron-circle-right"></i> work</a>
+          <a href="#experience"><i class="fas fa-chevron-circle-right"></i> experience</a>
+      </div>
+
+      <div class="box">
+          <h3>contact info</h3>
+          <p> <i class="fas fa-phone"></i>+91 9561434481</p>
+          <p> <i class="fas fa-envelope"></i>mauryashanur@gmail.com</p>
+          <p> <i class="fas fa-map-marked-alt"></i>Margao, India-403708</p>
+          <div class="share">
+
+              <a href="https://www.linkedin.com/in/shanur-maurya-27ba79268" class="fab fa-linkedin" aria-label="LinkedIn" target="_blank"></a>
+              <a href="https://github.com/Shanur-Maurya" class="fab fa-github" aria-label="GitHub" target="_blank"></a>
+              <a href="mailto:mauryashanur@gmail.com" class="fas fa-envelope" aria-label="Mail" target="_blank"></a>
+          </div>
+      </div>
+  </div>
+
+  <h1 class="credit">Designed with <i class="fa fa-heart pulse"></i> by <a href="https://www.linkedin.com/in/jigar-sable"> Shanur Maurya</a></h1>
+
+</section>
+<!-- footer section ends -->
+
+
+<!-- scroll top btn -->
+<a href="#home" aria-label="ScrollTop" class="fas fa-angle-up" id="scroll-top"></a>
+<!-- scroll back to top -->
+
+
+<!-- ==== ALL MAJOR JAVASCRIPT CDNS STARTS ==== -->
+<!-- jquery cdn -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- typed.js cdn -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.5/typed.min.js" integrity="sha512-1KbKusm/hAtkX5FScVR5G36wodIMnVd/aP04af06iyQTkD17szAMGNmxfNH+tEuFp3Og/P5G32L1qEC47CZbUQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- particle.js links -->
+<!-- Floating bubbles background -->
+<div id="tsparticles" style="position:absolute; inset:0; z-index:0; pointer-events:none;"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  tsParticles.load("tsparticles", {
+    fullScreen: { enable: false },
+    detectRetina: true,
+    fpsLimit: 60,
+    background: { color: "transparent" },
+    particles: {
+      number: { value: 45, density: { enable: true, area: 800 } },
+      color: { value: ["#e5e7eb", "#d1d5db", "#9ca3af"] }, // bright blue tones
+      shape: { type: "circle" },
+      opacity: { 
+        value: 0.35, // made slightly more visible
+        random: { enable: true, minimumValue: 0.15 } 
+      },
+      size: { value: { min: 15, max: 50 }, random: true },
+      move: {
+        enable: true,
+        speed: 0.7,
+        direction: "top",
+        random: false,
+        straight: false,
+        outModes: { default: "out" },
+        gravity: { enable: false }
+      },
+      links: { enable: false },
+      shadow: {
+        enable: true,
+        blur: 10,
+        color: "#60a5fa" // faint glow around bubbles
+      }
+    },
+    interactivity: {
+      events: {
+        onHover: { enable: true, mode: "repulse" },
+        resize: true
+      },
+      modes: {
+        repulse: { distance: 100, duration: 0.4 }
+      }
+    }
+  });
+});
+</script>
+<script src="./assets/js/app.js"></script>
+
+<!-- vanilla tilt.js links -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js" integrity="sha512-SttpKhJqONuBVxbRcuH0wezjuX+BoFoli0yPsnrAADcHsQMW8rkR84ItFHGIkPvhnlRnE2FaifDOUw+EltbuHg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- scroll reveal anim -->
+<script src="https://unpkg.com/scrollreveal"></script>
+
+<script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"
+    ></script>
+<script>
+        const projectsData = [
+            {
+                title: "Bus Track",
+                description: "Designed SmartCommute, a user-friendly bus tracking app. After interviewing commuters and researching existing apps, I identified key pain points, including uncertainty, poor navigation, and a lack of real-time updates. Mapped user journeys, analyzed competitor gaps, and created a high-fidelity Figma prototype with clear, intuitive navigation. The app focuses on real-time tracking, accurate arrival times, and smooth route planning, helping users travel with confidence.",
+                media: [
+                    { type: "video", src: "assets/images/Bus track - Page 1 - Google Chrome 2025-10-18 09-44-43.mp4" }
+                ]
+            },
+
+            {
+                title: "Wedding Card",
+                description: "Designed and developed a comprehensive multi-section digital wedding website for the Karthika-Lohith wedding. The site features a rich, traditional Indian aesthetic with vibrant color palettes and custom-designed ornamental borders. It provides a seamless user experience, clearly outlining the full event schedule, including the Ganapati Puja, Haldi, and Mehendi ceremonies.",
+                media: [
+                    { type: "video", src: "assets/images/WEDDING SITE.mp4" }
+                ]
+            },
+            {
+                title: "WhatsApp Redesign (Dark theme)",
+                description: "A modern redesign focused on accessibility and smarter organization. Crafted two inclusive dark theme with high contrast, clear icons, and layouts optimized for color-blind users. Introduced intelligent contact grouping (Family, Friends, Business, Emergency) to enhance privacy in shared spaces.",
+                media: [
+                    { type: "video", src: "assets/images/WHTSAPP2.mp4" }
+                ]
+            },
+             {
+                title: "WhatsApp Redesign (Light theme)",
+                description: "A modern redesign focused on accessibility and smarter organization. Crafted two inclusive Light themes with high contrast, clear icons, and layouts optimized for color-blind users. Introduced intelligent contact grouping (Family, Friends, Business, Emergency) to enhance privacy in shared spaces.",
+                media: [
+                    { type: "video", src: "assets/images/WHTSAPP1.mp4" }
+                ]
+            },
+          
+            {
+                title: "Lokesh & Karthika – Wedding Invitation",
+                description: "Designed an elegant, single-page wedding invitation emphasizing classic Indian aesthetics for a traditional ceremony. The piece uses a sophisticated beige and gold color palette with ornate gold filigree and auspicious traditional motifs (Lord Ganesha, diya). Focus was placed on typographic hierarchy and clear layout to respectfully present crucial event details. This design showcases skill in creating polished, culturally resonant print-ready assets with high attention to detail.",
+                media: [
+                    { type: "image", src: "assets/images/Shubhamastu Abhignamastu (1).png" }
+                ]
+            },
+
+           
+        ];
+
+        function createProjectCard(project, index) {
+            const card = document.createElement('div');
+            card.className = 'project-card';
+
+            const mediaContainer = document.createElement('div');
+            mediaContainer.className = 'media-container';
+
+            const badge = document.createElement('div');
+            badge.className = 'media-type-badge';
+            badge.textContent = project.media[0].type === 'video' ? 'VIDEO' : 'IMAGE';
+            mediaContainer.appendChild(badge);
+
+            const slider = document.createElement('div');
+            slider.className = 'media-slider';
+            slider.id = `slider-${index}`;
+
+            project.media.forEach((item, mediaIndex) => {
+                const mediaItem = document.createElement('div');
+                mediaItem.className = 'media-item';
+
+                if (item.type === 'video') {
+                    const video = document.createElement('video');
+                    video.src = item.src;
+                    video.controls = true;
+                    video.loop = true;
+                    video.muted = true;
+                    mediaItem.appendChild(video);
+                } else {
+                    const img = document.createElement('img');
+                    img.src = item.src;
+                    img.alt = `${project.title} - Image ${mediaIndex + 1}`;
+                    img.onerror = function() {
+                        this.src = 'https://via.placeholder.com/400x250/1a1a2e/00d4ff?text=' + encodeURIComponent(project.title);
+                    };
+                    mediaItem.appendChild(img);
+                }
+
+                slider.appendChild(mediaItem);
+            });
+
+            mediaContainer.appendChild(slider);
+
+            if (project.media.length > 1) {
+                const prevBtn = document.createElement('button');
+                prevBtn.className = 'nav-arrow prev';
+                prevBtn.innerHTML = '<i class="fas fa-chevron-left"></i>';
+                prevBtn.onclick = () => navigate(index, -1);
+
+                const nextBtn = document.createElement('button');
+                nextBtn.className = 'nav-arrow next';
+                nextBtn.innerHTML = '<i class="fas fa-chevron-right"></i>';
+                nextBtn.onclick = () => navigate(index, 1);
+
+                mediaContainer.appendChild(prevBtn);
+                mediaContainer.appendChild(nextBtn);
+
+                const controls = document.createElement('div');
+                controls.className = 'media-controls';
+                controls.id = `controls-${index}`;
+
+                project.media.forEach((_, dotIndex) => {
+                    const dot = document.createElement('div');
+                    dot.className = `media-dot ${dotIndex === 0 ? 'active' : ''}`;
+                    dot.onclick = () => goToSlide(index, dotIndex);
+                    controls.appendChild(dot);
+                });
+
+                mediaContainer.appendChild(controls);
+            }
+
+            const content = document.createElement('div');
+            content.className = 'project-content';
+
+            const title = document.createElement('h3');
+            title.className = 'project-title';
+            title.textContent = project.title;
+
+            const description = document.createElement('p');
+            description.className = 'project-description';
+            description.textContent = project.description;
+
+            content.appendChild(title);
+            content.appendChild(description);
+
+            card.appendChild(mediaContainer);
+            card.appendChild(content);
+
+            return card;
+        }
+
+        const currentSlides = new Array(projectsData.length).fill(0);
+
+        function navigate(cardIndex, direction) {
+            const slider = document.getElementById(`slider-${cardIndex}`);
+            const totalSlides = projectsData[cardIndex].media.length;
+            
+            currentSlides[cardIndex] += direction;
+            
+            if (currentSlides[cardIndex] < 0) currentSlides[cardIndex] = 0;
+            if (currentSlides[cardIndex] >= totalSlides) currentSlides[cardIndex] = totalSlides - 1;
+            
+            updateSlider(cardIndex);
+        }
+
+        function goToSlide(cardIndex, slideIndex) {
+            currentSlides[cardIndex] = slideIndex;
+            updateSlider(cardIndex);
+        }
+
+        function updateSlider(cardIndex) {
+            const slider = document.getElementById(`slider-${cardIndex}`);
+            const controls = document.getElementById(`controls-${cardIndex}`);
+            
+            slider.style.transform = `translateX(-${currentSlides[cardIndex] * 100}%)`;
+            
+            if (controls) {
+                const dots = controls.querySelectorAll('.media-dot');
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentSlides[cardIndex]);
+                });
+            }
+        }
+
+        const container = document.getElementById('projectsContainer');
+        projectsData.forEach((project, index) => {
+            container.appendChild(createProjectCard(project, index));
+        });
+  </script>ss
+<!-- ==== ALL MAJOR JAVASCRIPT CDNS ENDS ==== -->
+
+<script src="./assets/js/script.js"></script>
+
+</body>
+</html>
